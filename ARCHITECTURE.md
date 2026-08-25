@@ -116,21 +116,21 @@ graph TD
 Every microservice implements JSON-RPC 2.0 compliance with `tools/list` and `tools/call`.
 
 ### 1. `underwriting-gmail-mcp`
-* **Endpoint**: `https://underwriting-gmail-mcp-xgn5gkffnq-as.a.run.app/mcp`
+* **Endpoint**: `https://underwriting-gmail-mcp-<REGION_HASH>.a.run.app/mcp`
 * **Purpose**: Omnichannel intake, inbox scanning for loan applications, attachment fetching.
 * **Tools**:
   * `scan_gmail_inbox(query, max_results)`: Scans mailbox for tagged application submissions.
   * `fetch_email_attachment(message_id, attachment_id)`: Fetches bank statements and legal files.
 
 ### 2. `underwriting-doc-mcp`
-* **Endpoint**: `https://underwriting-doc-mcp-xgn5gkffnq-as.a.run.app/mcp`
+* **Endpoint**: `https://underwriting-doc-mcp-<REGION_HASH>.a.run.app/mcp`
 * **Purpose**: Document intake verification and OCR parsing of financial statements.
 * **Tools**:
   * `validate_document_checklist(applicant_id, submitted_documents)`: Evaluates mandatory compliance checklist.
   * `parse_financial_documents(document_type, document_data)`: Extracts balance sheets, P&L, and cashflow.
 
 ### 3. `underwriting-registry-mcp`
-* **Endpoint**: `https://underwriting-registry-mcp-xgn5gkffnq-as.a.run.app/mcp`
+* **Endpoint**: `https://underwriting-registry-mcp-<REGION_HASH>.a.run.app/mcp`
 * **Purpose**: Regulatory validation with Thai government systems.
 * **Tools**:
   * `verify_dbd_registry(juristic_id, company_name)`: Validates active corporate standing with DBD.
@@ -138,27 +138,27 @@ Every microservice implements JSON-RPC 2.0 compliance with `tools/list` and `too
   * `screen_aml_sanctions(entity_name, entity_type)`: Screens against AMLO and PEP lists.
 
 ### 4. `underwriting-fraud-mcp`
-* **Endpoint**: `https://underwriting-fraud-mcp-xgn5gkffnq-as.a.run.app/mcp`
+* **Endpoint**: `https://underwriting-fraud-mcp-<REGION_HASH>.a.run.app/mcp`
 * **Purpose**: Forensic audit and financial tampering detection.
 * **Tools**:
   * `analyze_revenue_anomaly(monthly_revenues, industry_type)`: Detects statistical revenue spikes.
   * `evaluate_statement_tampering(statement_id, reported_balance)`: Verifies running balance arithmetic.
 
 ### 5. `underwriting-scoring-mcp`
-* **Endpoint**: `https://underwriting-scoring-mcp-xgn5gkffnq-as.a.run.app/mcp`
+* **Endpoint**: `https://underwriting-scoring-mcp-<REGION_HASH>.a.run.app/mcp`
 * **Purpose**: Quantitative debt service coverage and credit grading.
 * **Tools**:
   * `calculate_dscr(net_operating_income, total_debt_service)`: Computes Debt Service Coverage Ratio.
   * `score_credit_risk(applicant_type, dscr, years_in_business, ncb_grade)`: Yields A/B/C/D credit rating.
 
 ### 6. `underwriting-decision-mcp`
-* **Endpoint**: `https://underwriting-decision-mcp-xgn5gkffnq-as.a.run.app/mcp`
+* **Endpoint**: `https://underwriting-decision-mcp-<REGION_HASH>.a.run.app/mcp`
 * **Purpose**: Commercial credit policy rule engine.
 * **Tools**:
   * `evaluate_underwriting_decision(applicant_id, requested_amount, credit_score, dscr, fraud_risk, dbd_verified, aml_cleared)`: Fast-track approval matrix evaluation.
 
 ### 7. `underwriting-notification-mcp`
-* **Endpoint**: `https://underwriting-notification-mcp-xgn5gkffnq-as.a.run.app/mcp`
+* **Endpoint**: `https://underwriting-notification-mcp-<REGION_HASH>.a.run.app/mcp`
 * **Purpose**: Automated multi-channel communication and executive memorandum generation.
 * **Tools**:
   * `generate_preapproval_letter(applicant_id, company_name, approved_amount, interest_rate, tenor_months)`: Generates formal pre-approval letters in Thai.

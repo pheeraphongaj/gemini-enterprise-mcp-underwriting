@@ -9,7 +9,7 @@ import time
 mcp_servers = [
     {
         "name": "Underwriting Gmail Scanner MCP",
-        "url": "https://underwriting-gmail-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-gmail-mcp-<REGION_HASH>.a.run.app/mcp",
         "tests": [
             {
                 "tool": "scan_gmail_inbox",
@@ -23,7 +23,7 @@ mcp_servers = [
     },
     {
         "name": "Underwriting Document Parser MCP",
-        "url": "https://underwriting-doc-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-doc-mcp-<REGION_HASH>.a.run.app/mcp",
         "tests": [
             {
                 "tool": "validate_document_checklist",
@@ -37,7 +37,7 @@ mcp_servers = [
     },
     {
         "name": "Underwriting Registry & AML MCP",
-        "url": "https://underwriting-registry-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-registry-mcp-<REGION_HASH>.a.run.app/mcp",
         "tests": [
             {
                 "tool": "verify_dbd_registry",
@@ -55,7 +55,7 @@ mcp_servers = [
     },
     {
         "name": "Underwriting Fraud Risk MCP",
-        "url": "https://underwriting-fraud-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-fraud-mcp-<REGION_HASH>.a.run.app/mcp",
         "tests": [
             {
                 "tool": "analyze_revenue_anomaly",
@@ -69,7 +69,7 @@ mcp_servers = [
     },
     {
         "name": "Underwriting Credit Scoring MCP",
-        "url": "https://underwriting-scoring-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-scoring-mcp-<REGION_HASH>.a.run.app/mcp",
         "tests": [
             {
                 "tool": "calculate_dscr",
@@ -83,7 +83,7 @@ mcp_servers = [
     },
     {
         "name": "Underwriting Decision Engine MCP",
-        "url": "https://underwriting-decision-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-decision-mcp-<REGION_HASH>.a.run.app/mcp",
         "tests": [
             {
                 "tool": "evaluate_underwriting_decision",
@@ -101,7 +101,7 @@ mcp_servers = [
     },
     {
         "name": "Underwriting Notification & Memo MCP",
-        "url": "https://underwriting-notification-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-notification-mcp-<REGION_HASH>.a.run.app/mcp",
         "tests": [
             {
                 "tool": "generate_preapproval_letter",

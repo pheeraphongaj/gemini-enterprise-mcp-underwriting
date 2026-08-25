@@ -5,7 +5,7 @@
     "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-gmail-mcp",
     "interfaces": [
       {
-        "url": "https://underwriting-gmail-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-gmail-mcp-<REGION_HASH>.a.run.app/mcp",
         "protocolBinding": "JSONRPC"
       }
     ],
@@ -54,7 +54,7 @@
     "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-doc-mcp",
     "interfaces": [
       {
-        "url": "https://underwriting-doc-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-doc-mcp-<REGION_HASH>.a.run.app/mcp",
         "protocolBinding": "JSONRPC"
       }
     ],
@@ -101,7 +101,7 @@
     "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-registry-mcp",
     "interfaces": [
       {
-        "url": "https://underwriting-registry-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-registry-mcp-<REGION_HASH>.a.run.app/mcp",
         "protocolBinding": "JSONRPC"
       }
     ],
@@ -162,7 +162,7 @@
     "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-fraud-mcp",
     "interfaces": [
       {
-        "url": "https://underwriting-fraud-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-fraud-mcp-<REGION_HASH>.a.run.app/mcp",
         "protocolBinding": "JSONRPC"
       }
     ],
@@ -211,7 +211,7 @@
     "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-scoring-mcp",
     "interfaces": [
       {
-        "url": "https://underwriting-scoring-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-scoring-mcp-<REGION_HASH>.a.run.app/mcp",
         "protocolBinding": "JSONRPC"
       }
     ],
@@ -270,7 +270,7 @@
     "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-decision-mcp",
     "interfaces": [
       {
-        "url": "https://underwriting-decision-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-decision-mcp-<REGION_HASH>.a.run.app/mcp",
         "protocolBinding": "JSONRPC"
       }
     ],
@@ -321,7 +321,7 @@
     "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-notification-mcp",
     "interfaces": [
       {
-        "url": "https://underwriting-notification-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": "https://underwriting-notification-mcp-<REGION_HASH>.a.run.app/mcp",
         "protocolBinding": "JSONRPC"
       }
     ],

@@ -23,13 +23,13 @@ Underwriting Multi-Agent System (v2)
 
 | Microservice | Cloud Run Service | MCP Interface URL | Primary MCP Tools |
 | :--- | :--- | :--- | :--- |
-| **Gmail Ingestion** | `underwriting-gmail-mcp` | `https://underwriting-gmail-mcp-xgn5gkffnq-as.a.run.app/mcp` | `scan_gmail_inbox`, `fetch_email_attachment` |
-| **Doc Validation** | `underwriting-doc-mcp` | `https://underwriting-doc-mcp-xgn5gkffnq-as.a.run.app/mcp` | `validate_document_checklist`, `parse_financial_documents` |
-| **National Registries** | `underwriting-registry-mcp` | `https://underwriting-registry-mcp-xgn5gkffnq-as.a.run.app/mcp` | `verify_dbd_registry`, `verify_dopa_identity`, `screen_aml_sanctions` |
-| **Fraud & Risk** | `underwriting-fraud-mcp` | `https://underwriting-fraud-mcp-xgn5gkffnq-as.a.run.app/mcp` | `analyze_revenue_anomaly`, `evaluate_statement_tampering` |
-| **Credit Scoring** | `underwriting-scoring-mcp` | `https://underwriting-scoring-mcp-xgn5gkffnq-as.a.run.app/mcp` | `calculate_dscr`, `score_credit_risk` |
-| **Decision Engine** | `underwriting-decision-mcp` | `https://underwriting-decision-mcp-xgn5gkffnq-as.a.run.app/mcp` | `evaluate_underwriting_decision` |
-| **Notification** | `underwriting-notification-mcp` | `https://underwriting-notification-mcp-xgn5gkffnq-as.a.run.app/mcp` | `generate_preapproval_letter`, `generate_missing_doc_notice`, `generate_underwriter_memo` |
+| **Gmail Ingestion** | `underwriting-gmail-mcp` | `https://underwriting-gmail-mcp-<REGION_HASH>.a.run.app/mcp` | `scan_gmail_inbox`, `fetch_email_attachment` |
+| **Doc Validation** | `underwriting-doc-mcp` | `https://underwriting-doc-mcp-<REGION_HASH>.a.run.app/mcp` | `validate_document_checklist`, `parse_financial_documents` |
+| **National Registries** | `underwriting-registry-mcp` | `https://underwriting-registry-mcp-<REGION_HASH>.a.run.app/mcp` | `verify_dbd_registry`, `verify_dopa_identity`, `screen_aml_sanctions` |
+| **Fraud & Risk** | `underwriting-fraud-mcp` | `https://underwriting-fraud-mcp-<REGION_HASH>.a.run.app/mcp` | `analyze_revenue_anomaly`, `evaluate_statement_tampering` |
+| **Credit Scoring** | `underwriting-scoring-mcp` | `https://underwriting-scoring-mcp-<REGION_HASH>.a.run.app/mcp` | `calculate_dscr`, `score_credit_risk` |
+| **Decision Engine** | `underwriting-decision-mcp` | `https://underwriting-decision-mcp-<REGION_HASH>.a.run.app/mcp` | `evaluate_underwriting_decision` |
+| **Notification** | `underwriting-notification-mcp` | `https://underwriting-notification-mcp-<REGION_HASH>.a.run.app/mcp` | `generate_preapproval_letter`, `generate_missing_doc_notice`, `generate_underwriter_memo` |
 
 ---
 

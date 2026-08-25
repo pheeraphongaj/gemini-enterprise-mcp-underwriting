@@ -18,13 +18,23 @@ token = (
 PROJECT_ID = "hong-ai-demo"
 LOCATION = "global"
 
+def get_service_url(svc_name, region="asia-southeast1"):
+    try:
+        cmd = ["gcloud", "run", "services", "describe", svc_name, f"--region={region}", "--format=value(status.url)"]
+        out = subprocess.check_output(cmd).decode("utf-8").strip()
+        if out:
+            return f"{out}/mcp"
+    except Exception:
+        pass
+    return f"https://{svc_name}-<REGION_HASH>.a.run.app/mcp"
+
 mcp_servers = [
     {
         "id": "underwriting-gmail-mcp",
         "collection_id": "underwriting-gmail-mcp-col",
         "display_name": "Underwriting Gmail MCP",
         "registry_name": "projects/hong-ai-demo/locations/global/mcpServers/agentregistry-00000000-0000-0000-ea44-c025b2c44fcb",
-        "url": "https://underwriting-gmail-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": get_service_url("underwriting-gmail-mcp"),
         "target_nodes": ["root_agent", "doc_intake_agent"]
     },
     {
@@ -32,7 +42,7 @@ mcp_servers = [
         "collection_id": "underwriting-doc-mcp-col",
         "display_name": "Underwriting Doc MCP",
         "registry_name": "projects/hong-ai-demo/locations/global/mcpServers/agentregistry-00000000-0000-0000-0415-92a53df78ea0",
-        "url": "https://underwriting-doc-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": get_service_url("underwriting-doc-mcp"),
         "target_nodes": ["root_agent", "doc_intake_agent", "doc_parser_agent"]
     },
     {
@@ -40,7 +50,7 @@ mcp_servers = [
         "collection_id": "underwriting-registry-mcp-col",
         "display_name": "Underwriting Registry MCP",
         "registry_name": "projects/hong-ai-demo/locations/global/mcpServers/agentregistry-00000000-0000-0000-c62f-b18b55bc3ff9",
-        "url": "https://underwriting-registry-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": get_service_url("underwriting-registry-mcp"),
         "target_nodes": ["root_agent", "verification_agent"]
     },
     {
@@ -48,7 +58,7 @@ mcp_servers = [
         "collection_id": "underwriting-fraud-mcp-col",
         "display_name": "Underwriting Fraud MCP",
         "registry_name": "projects/hong-ai-demo/locations/global/mcpServers/agentregistry-00000000-0000-0000-1e8a-22177f114468",
-        "url": "https://underwriting-fraud-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": get_service_url("underwriting-fraud-mcp"),
         "target_nodes": ["root_agent", "fraud_risk_agent"]
     },
     {
@@ -56,7 +66,7 @@ mcp_servers = [
         "collection_id": "underwriting-scoring-mcp-col",
         "display_name": "Underwriting Scoring MCP",
         "registry_name": "projects/hong-ai-demo/locations/global/mcpServers/agentregistry-00000000-0000-0000-7968-ad7b58cbc7b3",
-        "url": "https://underwriting-scoring-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": get_service_url("underwriting-scoring-mcp"),
         "target_nodes": ["root_agent", "scoring_engine_agent"]
     },
     {
@@ -64,7 +74,7 @@ mcp_servers = [
         "collection_id": "underwriting-decision-mcp-collection",
         "display_name": "Underwriting Decision MCP",
         "registry_name": "projects/hong-ai-demo/locations/global/mcpServers/agentregistry-00000000-0000-0000-e312-750b66a7c842",
-        "url": "https://underwriting-decision-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": get_service_url("underwriting-decision-mcp"),
         "target_nodes": ["root_agent", "decision_agent"]
     },
     {
@@ -72,7 +82,7 @@ mcp_servers = [
         "collection_id": "underwriting-notification-mcp-col",
         "display_name": "Underwriting Notification MCP",
         "registry_name": "projects/hong-ai-demo/locations/global/mcpServers/agentregistry-00000000-0000-0000-8bd4-2081f9b5d025",
-        "url": "https://underwriting-notification-mcp-xgn5gkffnq-as.a.run.app/mcp",
+        "url": get_service_url("underwriting-notification-mcp"),
         "target_nodes": ["root_agent", "notification_agent"]
     }
 ]
