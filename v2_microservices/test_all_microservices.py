@@ -3,7 +3,7 @@
 import importlib.util
 import os
 
-services_dir = "/google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/v2_microservices/services"
+services_dir = "./v2_microservices/services"
 
 def load_module(service_name: str):
     path = os.path.join(services_dir, service_name, "main.py")

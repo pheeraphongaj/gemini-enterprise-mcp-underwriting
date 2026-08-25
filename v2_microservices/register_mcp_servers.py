@@ -8,7 +8,7 @@ import urllib.error
 PROJECT_ID = "hong-ai-demo"
 REGION = "asia-southeast1"
 
-GCLOUD = "/usr/local/google/home/pheeraphong/google-cloud-sdk/bin/gcloud"
+GCLOUD = "gcloud"
 
 def get_service_url(svc_name: str) -> str:
     res = subprocess.check_output([
@@ -278,7 +278,7 @@ def main():
         manifest = {
             "displayName": item["display_name"],
             "description": item["description"],
-            "mcpServerId": f"urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:{svc_name}",
+            "mcpServerId": f"urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:{svc_name}",
             "interfaces": [
                 {
                     "url": f"{url}/mcp",
@@ -293,7 +293,7 @@ def main():
         print(f"   Tools: {[t['name'] for t in item['tools']]}")
 
     # Save to catalog file
-    output_path = "/google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/v2_microservices/mcp_catalog.json"
+    output_path = "./v2_microservices/mcp_catalog.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(manifest_records, f, indent=2)
     print(f"\n💾 Saved MCP Manifest Catalog to: {output_path}")

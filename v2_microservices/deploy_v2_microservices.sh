@@ -3,8 +3,8 @@ set -e
 
 PROJECT_ID="hong-ai-demo"
 REGION="asia-southeast1"
-BASE_DIR="/google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/v2_microservices/services"
-GCLOUD="/usr/local/google/home/pheeraphong/google-cloud-sdk/bin/gcloud"
+BASE_DIR="./v2_microservices/services"
+GCLOUD="gcloud"
 
 services=(
   "gmail_mcp:underwriting-gmail-mcp"

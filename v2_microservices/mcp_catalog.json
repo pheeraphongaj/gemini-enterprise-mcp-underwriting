@@ -2,7 +2,7 @@
   {
     "displayName": "Underwriting Gmail Ingestion MCP",
     "description": "MCP server for automated email ingestion and attachment retrieval for credit applications.",
-    "mcpServerId": "urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:underwriting-gmail-mcp",
+    "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-gmail-mcp",
     "interfaces": [
       {
         "url": "https://underwriting-gmail-mcp-xgn5gkffnq-as.a.run.app/mcp",
@@ -51,7 +51,7 @@
   {
     "displayName": "Underwriting Document Validation MCP",
     "description": "MCP server for validating mandatory Thai corporate/individual document checklists and OCR parsing.",
-    "mcpServerId": "urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:underwriting-doc-mcp",
+    "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-doc-mcp",
     "interfaces": [
       {
         "url": "https://underwriting-doc-mcp-xgn5gkffnq-as.a.run.app/mcp",
@@ -98,7 +98,7 @@
   {
     "displayName": "Underwriting National Registries MCP",
     "description": "MCP server for Thai Department of Business Development (DBD), DOPA Civil Identity, and AMLO sanctions verification.",
-    "mcpServerId": "urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:underwriting-registry-mcp",
+    "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-registry-mcp",
     "interfaces": [
       {
         "url": "https://underwriting-registry-mcp-xgn5gkffnq-as.a.run.app/mcp",
@@ -159,7 +159,7 @@
   {
     "displayName": "Underwriting Fraud Risk MCP",
     "description": "MCP server for Revenue Anomaly, Statement Tampering, and Check Bounce evaluation.",
-    "mcpServerId": "urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:underwriting-fraud-mcp",
+    "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-fraud-mcp",
     "interfaces": [
       {
         "url": "https://underwriting-fraud-mcp-xgn5gkffnq-as.a.run.app/mcp",
@@ -208,7 +208,7 @@
   {
     "displayName": "Underwriting Credit Scoring MCP",
     "description": "MCP server for DSCR ratio calculation, Credit Tier classification, and pricing spread recommendation.",
-    "mcpServerId": "urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:underwriting-scoring-mcp",
+    "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-scoring-mcp",
     "interfaces": [
       {
         "url": "https://underwriting-scoring-mcp-xgn5gkffnq-as.a.run.app/mcp",
@@ -267,7 +267,7 @@
   {
     "displayName": "Underwriting Decision Engine MCP",
     "description": "MCP server for deterministic policy matrix decisioning, facility terms structuring, and credit committee escalation.",
-    "mcpServerId": "urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:underwriting-decision-mcp",
+    "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-decision-mcp",
     "interfaces": [
       {
         "url": "https://underwriting-decision-mcp-xgn5gkffnq-as.a.run.app/mcp",
@@ -318,7 +318,7 @@
   {
     "displayName": "Underwriting Notification & Dispatch MCP",
     "description": "MCP server for generating customer pre-approval letters, missing doc links, and credit committee memos.",
-    "mcpServerId": "urn:mcp:projects-999668180031:projects:999668180031:locations:global:run:services:underwriting-notification-mcp",
+    "mcpServerId": "urn:mcp:projects-YOUR_PROJECT_NUMBER:projects:YOUR_PROJECT_NUMBER:locations:global:run:services:underwriting-notification-mcp",
     "interfaces": [
       {
         "url": "https://underwriting-notification-mcp-xgn5gkffnq-as.a.run.app/mcp",

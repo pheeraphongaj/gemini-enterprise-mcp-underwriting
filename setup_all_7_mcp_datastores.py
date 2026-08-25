@@ -9,7 +9,7 @@ import urllib.error
 
 token = (
     subprocess.check_output(
-        ["/usr/local/google/home/pheeraphong/google-cloud-sdk/bin/gcloud", "auth", "print-access-token"]
+        ["gcloud", "auth", "print-access-token"]
     )
     .decode("utf-8")
     .strip()

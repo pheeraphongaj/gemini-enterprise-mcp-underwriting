@@ -9,13 +9,13 @@
 
 | Asset | File / Path | Description |
 | :--- | :--- | :--- |
-| 📊 **Interactive HTML Presentation & Live Simulator** | [`underwriting_solution_presentation.html`](file:///google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/underwriting_solution_presentation.html) | Executive & technical slide deck with a live interactive underwriting flow simulator. |
-| 🏛️ **Technical Architecture Blueprint** | [`ARCHITECTURE.md`](file:///google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/ARCHITECTURE.md) | In-depth topology, multi-agent hierarchy, sequence diagrams, and security architecture. |
-| 🚀 **Step-by-Step Setup & Deployment Guide** | [`SETUP_GUIDE.md`](file:///google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/SETUP_GUIDE.md) | Complete replication guide to deploy into any GCP project in ~10 minutes. |
-| 💬 **Sample Prompts & Test Scenarios** | [`SAMPLE_PROMPTS.md`](file:///google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/SAMPLE_PROMPTS.md) | Ready-to-use demo prompts in Thai with expected tool executions and sample outputs. |
-| ⚡ **One-Click Deploy Script** | [`deploy_all.py`](file:///google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/deploy_all.py) | Automated orchestration script for end-to-end deployment. |
-| 📄 **Exported Agent Definition** | [`export_agent_definition.json`](file:///google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/export_agent_definition.json) | Declarative JSON configuration of the 8-node multi-agent orchestrator. |
-| 🧪 **MCP Microservices Test Harness** | [`test_all_mcp_servers.py`](file:///google/src/cloud/pheeraphong/hong-ai-demo/google3/underwriting_demo/test_all_mcp_servers.py) | Unit test suite testing all 15 tools across 7 Cloud Run microservices. |
+| 📊 **Interactive HTML Presentation & Live Simulator** | [`underwriting_solution_presentation.html`](file://./underwriting_solution_presentation.html) | Executive & technical slide deck with a live interactive underwriting flow simulator. |
+| 🏛️ **Technical Architecture Blueprint** | [`ARCHITECTURE.md`](file://./ARCHITECTURE.md) | In-depth topology, multi-agent hierarchy, sequence diagrams, and security architecture. |
+| 🚀 **Step-by-Step Setup & Deployment Guide** | [`SETUP_GUIDE.md`](file://./SETUP_GUIDE.md) | Complete replication guide to deploy into any GCP project in ~10 minutes. |
+| 💬 **Sample Prompts & Test Scenarios** | [`SAMPLE_PROMPTS.md`](file://./SAMPLE_PROMPTS.md) | Ready-to-use demo prompts in Thai with expected tool executions and sample outputs. |
+| ⚡ **One-Click Deploy Script** | [`deploy_all.py`](file://./deploy_all.py) | Automated orchestration script for end-to-end deployment. |
+| 📄 **Exported Agent Definition** | [`export_agent_definition.json`](file://./export_agent_definition.json) | Declarative JSON configuration of the 8-node multi-agent orchestrator. |
+| 🧪 **MCP Microservices Test Harness** | [`test_all_mcp_servers.py`](file://./test_all_mcp_servers.py) | Unit test suite testing all 15 tools across 7 Cloud Run microservices. |
 
 ---
 

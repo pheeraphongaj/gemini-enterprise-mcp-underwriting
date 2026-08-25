@@ -1,5 +1,5 @@
 {
-  "name": "projects/999668180031/locations/global/collections/default_collection/engines/ge-demo1/assistants/default_assistant/agents/underwriting-orchestrator",
+  "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/engines/ge-demo1/assistants/default_assistant/agents/underwriting-orchestrator",
   "displayName": "ผู้ช่วยพิจารณาสินเชื่อธุรกิจ (Underwriting Multi-Agent Orchestrator)",
   "description": "ระบบปัญญาประดิษฐ์พิจารณาสินเชื่อธุรกิจและ SME อัตโนมัติ สแกน Gmail [underwriting], ตรวจสอบ DBD/DOPA/AMLO, คำนวณ DSCR, วิเคราะห์ทุจริต ป.พ.30 และออกหนังสือแจ้งผล ตอบภาษาไทย 100%",
   "icon": {
@@ -57,55 +57,55 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -131,20 +131,20 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -170,13 +170,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -208,13 +208,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -243,13 +243,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -278,13 +278,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -310,13 +310,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -348,13 +348,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -395,55 +395,55 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -469,20 +469,20 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-gmail-mcp-col_mcp_data"
               },
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-gmail-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             },
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -508,13 +508,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-doc-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-doc-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -546,13 +546,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-registry-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-registry-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -581,13 +581,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-fraud-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-fraud-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -616,13 +616,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-scoring-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-scoring-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -648,13 +648,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-decision-mcp-collection_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-decision-mcp-collection/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -686,13 +686,13 @@
           "dataStoreSpecs": {
             "specs": [
               {
-                "dataStore": "projects/999668180031/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
+                "dataStore": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/default_collection/dataStores/underwriting-notification-mcp-col_mcp_data"
               }
             ]
           },
           "dataConnectors": [
             {
-              "name": "projects/999668180031/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
+              "name": "projects/YOUR_PROJECT_NUMBER/locations/global/collections/underwriting-notification-mcp-col/dataConnector",
               "dataSource": "custom_mcp"
             }
           ]
@@ -730,7 +730,7 @@
   },
   "agentIdentityInfo": {
     "spiffeIdType": "USER",
-    "spiffeId": "//agents.global.org-870271552573.system.id.goog/resources/discoveryengine/projects/999668180031/locations/global/engines/ge-demo1/assistants/default_assistant/agents/user/underwriting-orchestrator",
+    "spiffeId": "//agents.global.org-YOUR_ORG_ID.system.id.goog/resources/discoveryengine/projects/YOUR_PROJECT_NUMBER/locations/global/engines/ge-demo1/assistants/default_assistant/agents/user/underwriting-orchestrator",
     "agentIdPart": "underwriting-orchestrator"
   }
 }

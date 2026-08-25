@@ -23,7 +23,7 @@ def run_cmd(cmd, cwd=None):
     return res.stdout.strip()
 
 def get_access_token():
-    return run_cmd(["/usr/local/google/home/pheeraphong/google-cloud-sdk/bin/gcloud", "auth", "print-access-token"])
+    return run_cmd(["gcloud", "auth", "print-access-token"])
 
 def main():
     parser = argparse.ArgumentParser(description="Deploy Autonomous Underwriting Platform on GCP")
@@ -51,7 +51,7 @@ def main():
         "artifactregistry.googleapis.com",
         "discoveryengine.googleapis.com"
     ]
-    run_cmd(["/usr/local/google/home/pheeraphong/google-cloud-sdk/bin/gcloud", "services", "enable"] + apis + ["--project", project_id])
+    run_cmd(["gcloud", "services", "enable"] + apis + ["--project", project_id])
     print("✅ APIs enabled.")
 
     # 2. Deploy Cloud Run Microservices
