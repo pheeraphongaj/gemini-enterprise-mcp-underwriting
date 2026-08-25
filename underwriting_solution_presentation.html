@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous SME Loan Underwriting with Gemini Enterprise & MCP</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Google Sans', 'Noto Sans Thai', sans-serif;
+    }
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #1a73e8 0%, #8ab4f8 50%, #4285f4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased flex flex-col">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 px-6 py-3.5 flex items-center justify-between shadow-sm">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+        🏦
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight text-slate-900 flex items-center gap-2">
+          Autonomous SME Underwriting Platform
+          <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200">Gemini Enterprise v2</span>
+        </h1>
+        <p class="text-xs text-slate-500">Multi-Agent AI Architecture Powered by Gemini 3.7 Flash & 7 Cloud Run MCP Microservices</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        All 7 MCP Microservices Live
+      </span>
+      <a href="#simulator" class="text-xs font-medium px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition shadow-sm">
+        🚀 Try Live Simulator
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-12 pb-16 bg-gradient-to-b from-blue-50/50 via-white to-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/80 text-blue-800 text-xs font-semibold mb-4">
+          ✨ Google Cloud Customer Engineering Showcase
+        </div>
+        <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-4 leading-tight">
+          ปฏิวัติการพิจารณาสินเชื่อธุรกิจ SME <br>
+          <span class="gradient-text">จาก 7 วัน สู่ 60 วินาที</span>
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          ผสานพลังของ <strong>Gemini Enterprise (No-Code/Low-Code Agent Designer)</strong>, โมเดลเหตุผลขั้นสูง <strong>Gemini 3.7 Flash</strong>, และ <strong>Model Context Protocol (MCP)</strong> บน <strong>Google Cloud Run</strong> เพื่อตรวจสอบเอกสาร ตรวจทุจริต ประเมินคะแนนเครดิต และออกหนังสืออนุมัติสินเชื่อแบบอัตโนมัติ 100%
+        </p>
+      </div>
+
+      <!-- Key Metrics Comparison -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Turnaround Time</p>
+          <div class="flex items-center justify-center gap-2">
+            <span class="text-slate-400 line-through text-sm">5 - 7 วัน</span>
+            <span class="text-2xl font-extrabold text-blue-600">&lt; 60 วินาที</span>
+          </div>
+          <p class="text-[11px] text-emerald-600 font-medium mt-1">⚡ เร็วขึ้นกว่า 99%</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Underwriting Cost</p>
+          <div class="flex items-center justify-center gap-2">
+            <span class="text-slate-400 line-through text-sm">~4,500 ฿</span>
+            <span class="text-2xl font-extrabold text-emerald-600">&lt; 15 ฿</span>
+          </div>
+          <p class="text-[11px] text-emerald-600 font-medium mt-1">📉 ลดต้นทุนมากกว่า 95%</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Fraud & Anomaly Catch</p>
+          <div class="flex items-center justify-center gap-2">
+            <span class="text-slate-400 line-through text-sm">สุ่มตรวจ</span>
+            <span class="text-2xl font-extrabold text-indigo-600">100% Audit</span>
+          </div>
+          <p class="text-[11px] text-indigo-600 font-medium mt-1">🛡️ ตรวจจับสเตทเมนต์ปลอม</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Agent Architecture</p>
+          <div class="flex items-center justify-center gap-2">
+            <span class="text-2xl font-extrabold text-purple-600">8 Nodes</span>
+          </div>
+          <p class="text-[11px] text-purple-600 font-medium mt-1">🧩 7 MCP Microservices</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive System Architecture Section -->
+  <section class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div>
+          <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">End-to-End Topology</span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">สถาปัตยกรรมระบบ Multi-Agent & Microservices</h3>
+        </div>
+        <p class="text-sm text-slate-500 max-w-md mt-2 md:mt-0">
+          แบ่งหน้าที่แบบ Decoupled Microservices ผ่านมาตรฐาน Model Context Protocol (JSON-RPC) และเชื่อมโยงผ่าน Gemini Enterprise Agent Gateway
+        </p>
+      </div>
+
+      <!-- Architecture Flow Visual -->
+      <div class="bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl overflow-x-auto">
+        <div class="min-w-[900px]">
+          <!-- Layer 1: Ingress / Trigger -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-400">1. Intake & Communication Layer</span>
+              <span class="text-xs text-slate-400">Omnichannel & Email Scanners</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-4 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-blue-500/20 text-blue-400 text-lg">📧</div>
+                <div>
+                  <h4 class="text-sm font-semibold text-white">underwriting-gmail-mcp</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Cloud Run • Tools: <code class="text-blue-300">scan_gmail_inbox</code>, <code class="text-blue-300">fetch_email_attachment</code></p>
+                </div>
+              </div>
+              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-4 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-amber-500/20 text-amber-400 text-lg">📄</div>
+                <div>
+                  <h4 class="text-sm font-semibold text-white">underwriting-doc-mcp</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Cloud Run • Tools: <code class="text-amber-300">validate_document_checklist</code>, <code class="text-amber-300">parse_financial_documents</code></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layer 2: Orchestrator Brain -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-400">2. Gemini Enterprise Orchestration Core (ge-demo1)</span>
+              <span class="text-xs text-slate-400">Gemini 3.7 Flash Engine with Dynamic MCP Tool Calling</span>
+            </div>
+            <div class="bg-gradient-to-r from-blue-950/80 via-purple-950/80 to-slate-900 border border-purple-800/50 rounded-2xl p-5">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-purple-300 px-3 py-1 rounded-full bg-purple-900/60 border border-purple-700">Root Orchestrator Agent (Node: root_agent)</span>
+                <span class="text-xs text-slate-300 font-mono">100% Thai Instructions • Multi-Step Reasoning</span>
+              </div>
+              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 text-center text-xs">
+                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Doc Intake</div>
+                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Doc Parser</div>
+                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">KYC/AML Verify</div>
+                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Fraud Analysis</div>
+                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Credit Scoring</div>
+                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Decision/Memo</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layer 3: Specialist Risk, Policy & Decision MCP Microservices -->
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">3. Specialist Domain & Policy Microservices</span>
+              <span class="text-xs text-slate-400">Autonomous Stateless Microservices on Cloud Run</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
+              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
+                <div class="text-sm font-semibold text-emerald-400 mb-1">🏛️ Registry & AML</div>
+                <p class="text-[11px] text-slate-400">DBD Company Lookup, DOPA National ID, AML Sanction screening</p>
+                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-registry-mcp</div>
+              </div>
+
+              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
+                <div class="text-sm font-semibold text-rose-400 mb-1">🕵️ Fraud & Tamper</div>
+                <p class="text-[11px] text-slate-400">Revenue anomaly detection, Statement tampering evaluation</p>
+                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-fraud-mcp</div>
+              </div>
+
+              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
+                <div class="text-sm font-semibold text-cyan-400 mb-1">📊 Credit Scoring</div>
+                <p class="text-[11px] text-slate-400">DSCR debt service coverage calculation, SME risk rating</p>
+                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-scoring-mcp</div>
+              </div>
+
+              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
+                <div class="text-sm font-semibold text-yellow-400 mb-1">⚖️ Decision Engine</div>
+                <p class="text-[11px] text-slate-400">Fast-track policy rules, Facility limits, Interest pricing</p>
+                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-decision-mcp</div>
+              </div>
+
+              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
+                <div class="text-sm font-semibold text-purple-400 mb-1">📩 Notification & Memo</div>
+                <p class="text-[11px] text-slate-400">Pre-approval letters, Missing document notices, Committee memos</p>
+                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-notification-mcp</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live Simulator Section -->
+  <section id="simulator" class="py-14 bg-slate-100/70 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Live Interactive Simulator</span>
+        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">จำลองการประเมินสินเชื่อแบบเรียลไทม์</h3>
+        <p class="text-sm text-slate-600 mt-2">
+          เลือกสถานการณ์ทดสอบเพื่อดูขั้นตอนการเรียกใช้เครื่องมือ MCP ทั้ง 7 ตัว และผลการวิเคราะห์ภาษาไทย
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Scenario Selector & Inputs -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span>🎯</span> เลือกสถานการณ์จำลอง (Test Scenarios)
+            </h4>
+            
+            <div class="space-y-2">
+              <button onclick="selectScenario('clean_approval')" id="btn-clean" class="w-full text-left p-3.5 rounded-xl border border-blue-500 bg-blue-50/50 transition">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-blue-900">1. บริษัท สยาม ซอฟต์แวร์ โซลูชั่น</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">อนุมัติฉับไว</span>
+                </div>
+                <p class="text-[11px] text-slate-600 mt-1">ขอกู้ 10M ฿ • DBD ตรง • DSCR 1.73 • ไร้ประวัติทุจริต</p>
+              </button>
+
+              <button onclick="selectScenario('missing_docs')" id="btn-missing" class="w-full text-left p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-slate-900">2. บริษัท บางกอก โลจิสติกส์</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">ขอเอกสารเพิ่ม</span>
+                </div>
+                <p class="text-[11px] text-slate-600 mt-1">ขอกู้ 5M ฿ • ขาดงบการเงินผู้สอบบัญชีปี 2025</p>
+              </button>
+
+              <button onclick="selectScenario('tampered_stmt')" id="btn-tampered" class="w-full text-left p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-slate-900">3. บริษัท ไทย เทรดดิ้ง พาร์ทเนอร์</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">ตรวจพบทุจริต</span>
+                </div>
+                <p class="text-[11px] text-slate-600 mt-1">ขอกู้ 15M ฿ • ตรวจพบสเตทเมนต์ดัดแปลงตัวเลขยอดเงิน</p>
+              </button>
+
+              <button onclick="selectScenario('aml_hit')" id="btn-aml" class="w-full text-left p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-slate-900">4. โกลบอล อินเวสท์เมนท์ กรุ๊ป</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700">ติด Sanction</span>
+                </div>
+                <p class="text-[11px] text-slate-600 mt-1">ขอกู้ 25M ฿ • กรรมการติดรายชื่อเฝ้าระวัง ปปง./AML</p>
+              </button>
+            </div>
+
+            <button onclick="runSimulation()" id="run-btn" class="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+              <span>⚡</span> รันการประเมิน Multi-Agent (Auto Underwrite)
+            </button>
+          </div>
+
+          <!-- Scenario Details Preview -->
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm text-xs space-y-2">
+            <div class="font-bold text-slate-900 flex items-center justify-between">
+              <span>📋 ข้อมูลการยื่นกู้</span>
+              <span id="scenario-id" class="text-blue-600 font-mono">APP-2026-001</span>
+            </div>
+            <div class="text-slate-600 space-y-1">
+              <div><strong>นิติบุคคล:</strong> <span id="company-name">บริษัท สยาม ซอฟต์แวร์ โซลูชั่น จำกัด</span></div>
+              <div><strong>เลขนิติบุคคล:</strong> <span id="juristic-id" class="font-mono">0105558000001</span></div>
+              <div><strong>วงเงินที่ขอ:</strong> <span id="requested-amount" class="text-slate-900 font-bold">10,000,000 บาท</span></div>
+              <div><strong>ประเภทธุรกิจ:</strong> <span id="business-type">IT Consulting & Software Development</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Agent Execution Pipeline & Output -->
+        <div class="lg:col-span-8 space-y-4">
+          <!-- Execution Pipeline Steps -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>🔄</span> ลำดับการเรียกใช้เครื่องมือ MCP (Agent Execution Flow)
+              </h4>
+              <span id="sim-status" class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">พร้อมทำงาน</span>
+            </div>
+
+            <div class="space-y-2.5" id="pipeline-steps">
+              <!-- Step 1 -->
+              <div id="step-1" class="p-3 rounded-xl border border-slate-200 bg-slate-50/50 flex items-center justify-between text-xs transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[11px] step-badge">1</span>
+                  <div>
+                    <span class="font-bold text-slate-900">สแกนอีเมล & ตรวจเอกสารรับเข้า</span>
+                    <span class="text-slate-500 text-[11px] block">Tool: <code class="text-blue-600">scan_gmail_inbox</code>, <code class="text-blue-600">validate_document_checklist</code></span>
+                  </div>
+                </div>
+                <span class="status-indicator text-slate-400 text-[11px] font-medium">รอดำเนินการ</span>
+              </div>
+
+              <!-- Step 2 -->
+              <div id="step-2" class="p-3 rounded-xl border border-slate-200 bg-slate-50/50 flex items-center justify-between text-xs transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[11px] step-badge">2</span>
+                  <div>
+                    <span class="font-bold text-slate-900">ตรวจสอบฐานข้อมูล DBD & คัดกรองรายชื่อ AML</span>
+                    <span class="text-slate-500 text-[11px] block">Tool: <code class="text-emerald-600">verify_dbd_registry</code>, <code class="text-emerald-600">screen_aml_sanctions</code></span>
+                  </div>
+                </div>
+                <span class="status-indicator text-slate-400 text-[11px] font-medium">รอดำเนินการ</span>
+              </div>
+
+              <!-- Step 3 -->
+              <div id="step-3" class="p-3 rounded-xl border border-slate-200 bg-slate-50/50 flex items-center justify-between text-xs transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[11px] step-badge">3</span>
+                  <div>
+                    <span class="font-bold text-slate-900">วิเคราะห์ความผิดปกติของรายได้ & ตรวจสอบการดัดแปลงสเตทเมนต์</span>
+                    <span class="text-slate-500 text-[11px] block">Tool: <code class="text-rose-600">analyze_revenue_anomaly</code>, <code class="text-rose-600">evaluate_statement_tampering</code></span>
+                  </div>
+                </div>
+                <span class="status-indicator text-slate-400 text-[11px] font-medium">รอดำเนินการ</span>
+              </div>
+
+              <!-- Step 4 -->
+              <div id="step-4" class="p-3 rounded-xl border border-slate-200 bg-slate-50/50 flex items-center justify-between text-xs transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[11px] step-badge">4</span>
+                  <div>
+                    <span class="font-bold text-slate-900">คำนวณสัดส่วนความสามารถชำระหนี้ (DSCR) & ประเมินคะแนนเครดิต</span>
+                    <span class="text-slate-500 text-[11px] block">Tool: <code class="text-cyan-600">calculate_dscr</code>, <code class="text-cyan-600">score_credit_risk</code></span>
+                  </div>
+                </div>
+                <span class="status-indicator text-slate-400 text-[11px] font-medium">รอดำเนินการ</span>
+              </div>
+
+              <!-- Step 5 -->
+              <div id="step-5" class="p-3 rounded-xl border border-slate-200 bg-slate-50/50 flex items-center justify-between text-xs transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[11px] step-badge">5</span>
+                  <div>
+                    <span class="font-bold text-slate-900">พิจารณาตัดสิน & สร้างเอกสารผลการอนุมัติ / บันทึกสินเชื่อ</span>
+                    <span class="text-slate-500 text-[11px] block">Tool: <code class="text-purple-600">evaluate_underwriting_decision</code>, <code class="text-purple-600">generate_preapproval_letter</code></span>
+                  </div>
+                </div>
+                <span class="status-indicator text-slate-400 text-[11px] font-medium">รอดำเนินการ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generated Underwriting Memo / Output Display -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between mb-3 border-b border-slate-100 pb-3">
+              <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>📑</span> ผลการพิจารณาสินเชื่อ (Generated Underwriter Document)
+              </h4>
+              <span id="decision-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">
+                ยังไม่ได้รัน
+              </span>
+            </div>
+
+            <div id="output-container" class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs overflow-x-auto min-h-[160px] max-h-[350px] overflow-y-auto whitespace-pre-wrap leading-relaxed">
+กดปุ่ม "รันการประเมิน Multi-Agent" เพื่อเริ่มกระบวนการวิเคราะห์สินเชื่อ...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable Blueprint & Deployment Steps -->
+  <section class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Fast-Track Deployment</span>
+        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">วิธีนำไป Deploy ใน GCP Project ของลูกค้า</h3>
+        <p class="text-sm text-slate-600 mt-2">
+          Asset แพ็กเกจพร้อมสคริปต์อัตโนมัติ ติดตั้งเสร็จภายใน 10 นาที
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center mb-3">1</div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">Deploy Cloud Run MCPs</h4>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              รันคำสั่งเดียวเพื่อ Build และ Deploy ไมโครเซอร์วิสทั้ง 7 ตัวขึ้นบน Google Cloud Run ด้วยสิทธิ์สาธารณะ/OAuth:
+            </p>
+            <pre class="bg-slate-900 text-blue-300 p-3 rounded-lg text-[11px] overflow-x-auto"><code>./deploy_v2_microservices.sh</code></pre>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-medium">
+            ✓ คล่องตัว ไร้สถานะ ขยายตามการใช้งานอัตโนมัติ
+          </div>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-bold flex items-center justify-center mb-3">2</div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">Register to Gemini Enterprise</h4>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              ปลดล็อก Org Policy และเชื่อมโยง MCP Data Stores ทั้ง 7 เข้ากับ Engine <code>ge-demo1</code> อัตโนมัติ:
+            </p>
+            <pre class="bg-slate-900 text-indigo-300 p-3 rounded-lg text-[11px] overflow-x-auto"><code>python3 setup_all_7_mcp_datastores.py</code></pre>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-medium">
+            ✓ ผูกเข้ากับ Agent Gateway และ DataConnector
+          </div>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-purple-600 text-white font-bold flex items-center justify-center mb-3">3</div>
+            <h4 class="text-base font-bold text-slate-900 mb-2">Import & Deploy Agent</h4>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              อัปเกรดเป็นโมเดล Gemini 3.7 Flash พร้อมชุด Prompt ภาษาไทยสำหรับวงการธนาคาร:
+            </p>
+            <pre class="bg-slate-900 text-purple-300 p-3 rounded-lg text-[11px] overflow-x-auto"><code>python3 update_agent_designer_v2_mcp_thai.py</code></pre>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-medium">
+            ✓ พร้อมใช้งานผ่าน Gemini Enterprise Web & Chat API
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-auto bg-slate-900 text-slate-400 py-8 px-6 text-center text-xs">
+    <p>© 2026 Google Cloud Customer Engineering. Built with Gemini Enterprise & Model Context Protocol (MCP).</p>
+    <p class="mt-1 text-slate-500">Asset Packaged for Enterprise Reusability & Customer Demonstration.</p>
+  </footer>
+
+  <!-- Simulation Logic Script -->
+  <script>
+    const scenarios = {
+      clean_approval: {
+        id: "APP-2026-001",
+        name: "บริษัท สยาม ซอฟต์แวร์ โซลูชั่น จำกัด",
+        juristicId: "0105558000001",
+        amount: "10,000,000 บาท",
+        type: "IT Consulting & Software Development",
+        decision: "PRE_APPROVED",
+        badge: "✅ FAST-TRACK PRE-APPROVED",
+        badgeClass: "bg-emerald-100 text-emerald-800 border border-emerald-300",
+        memo: `# 🏦 COMMERCIAL CREDIT APPROVAL MEMORANDUM
+เลขที่ใบคำขอ: APP-2026-001
+วันที่พิจารณา: 25 สิงหาคม 2026
+ผู้ขอสินเชื่อ: บริษัท สยาม ซอฟต์แวร์ โซลูชั่น จำกัด (ทะเบียนนิติบุคคล 0105558000001)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. ผลการพิจารณา (Underwriting Decision): 
+   🟢 อนุมัติเบื้องต้นแบบ Fast-Track (PRE-APPROVED)
+   • วงเงินสินเชื่อที่อนุมัติ: 10,000,000 บาท (สินเชื่อหมุนเวียนเสริมสภาพคล่องธุรกิจ)
+   • อัตราดอกเบี้ย: MRR - 1.25% (เทียบเท่า 5.75% ต่อปี)
+   • ระยะเวลาผ่อนชำระ: 60 เดือน
+
+2. การตรวจสอบเอกสารและความถูกต้อง (Verification & KYC/AML):
+   ✓ ตรวจสอบสถานะนิติบุคคล DBD: ดำเนินการ 5 ปี ทุนจดทะเบียน 5,000,000 บาท (สถานะ: ปกติ)
+   ✓ ตรวจสอบรายชื่อบุคคลต้องห้าม (AML/CFT Sanctions): ผ่านการคัดกรอง 100% ไม่ติดประวัติ
+   ✓ เอกสารประกอบการยื่นกู้: ครบถ้วนตามมาตรฐาน Checklist
+
+3. สรุปการวิเคราะห์ทางการเงิน (Financial & Risk Analysis):
+   • รายได้เฉลี่ยต่อเดือน: 1,243,333 บาท
+   • ความสามารถในการชำระหนี้ (DSCR): 1.73 เท่า (เกณฑ์ขั้นต่ำธนาคาร ≥ 1.25 เท่า)
+   • ความเสี่ยงด้านการทุจริตสเตทเมนต์: ต่ำมาก (Low Risk - ไม่พบการดัดแปลงยอดเงิน)
+   • อันดับเครดิตธุรกิจ (Credit Rating): Grade A (ความเสี่ยงต่ำมาก)
+
+4. เอกสารที่จัดทำและส่งออกอัตโนมัติ:
+   ✓ สร้างจดหมายแจ้งผลการอนุมัติเบื้องต้น (Pre-Approval Letter) ส่งผ่านอีเมลเรียบร้อยแล้ว`
+      },
+      missing_docs: {
+        id: "APP-2026-002",
+        name: "บริษัท บางกอก โลจิสติกส์ เซอร์วิสเซส จำกัด",
+        juristicId: "0105558000002",
+        amount: "5,000,000 บาท",
+        type: "Logistics & Supply Chain",
+        decision: "PENDING_DOCS",
+        badge: "⚠️ PENDING MISSING DOCUMENTS",
+        badgeClass: "bg-amber-100 text-amber-800 border border-amber-300",
+        memo: `# 📑 NOTIFICATION: PENDING MISSING DOCUMENTS
+เลขที่ใบคำขอ: APP-2026-002
+ผู้ขอสินเชื่อ: บริษัท บางกอก โลจิสติกส์ เซอร์วิสเซส จำกัด (0105558000002)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. ผลการตรวจเอกสารรับเข้า (Document Intake Status):
+   ⚠️ ขาดเอกสารสำคัญประกอบการพิจารณา (Missing Required Documents)
+
+2. รายการเอกสารที่ต้องนำส่งเพิ่มเติม:
+   [ ] งบการเงินที่ผ่านการตรวจสอบโดยผู้สอบบัญชีรับอนุญาต (CPA) ประจำปี 2568
+   [ ] สำเนาบัญชีรายชื่อผู้ถือหุ้น (บอจ.5) ฉบับปรับปรุงไม่เกิน 3 เดือน
+
+3. การดำเนินการของระบบ:
+   ✓ สร้างและส่งหนังสือแจ้งขอเอกสารเพิ่มเติม (Missing Document Notice) ผ่านระบบอีเมล
+   ✓ สร้าง Secure Upload Link พร้อมรหัส OTP ให้ลูกค้าส่งเอกสารต่อได้ทันที`
+      },
+      tampered_stmt: {
+        id: "APP-2026-003",
+        name: "บริษัท ไทย เทรดดิ้ง พาร์ทเนอร์ จำกัด",
+        juristicId: "0105558000003",
+        amount: "15,000,000 บาท",
+        type: "Wholesale & Import Trading",
+        decision: "REJECTED_FRAUD",
+        badge: "🚫 REJECTED: STATEMENT TAMPERING DETECTED",
+        badgeClass: "bg-rose-100 text-rose-800 border border-rose-300",
+        memo: `# 🚨 FRAUD RISK ALERT & DECLINE MEMORANDUM
+เลขที่ใบคำขอ: APP-2026-003
+ผู้ขอสินเชื่อ: บริษัท ไทย เทรดดิ้ง พาร์ทเนอร์ จำกัด (0105558000003)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. ผลการพิจารณา (Underwriting Decision): 
+   🚫 ปฏิเสธการให้สินเชื่อ (REJECTED) - ตรวจพบความเสี่ยงทุจริตระดับสูง
+
+2. ข้อตรวจพบด้านการดัดแปลงเอกสาร (Fraud Detection Findings):
+   • เครื่องมือ analyze_revenue_anomaly & evaluate_statement_tampering ตรวจพบความผิดปกติ
+   • ยอดเงินคงเหลือสะสมในสเตทเมนต์ (Bank Statement) ไม่ตรงกับผลรวมกระแสเงินสดจริง
+   • มีการแก้ไขเลขอักษรยอดเงินเข้าเดือนมีนาคม-พฤษภาคม เพื่อสร้างตัวเลขเทียม
+   • บันทึกส่งต่อฝ่ายตรวจสอบทุจริต (Internal Audit / Fraud Unit) เพื่อเฝ้าระวัง`
+      },
+      aml_hit: {
+        id: "APP-2026-004",
+        name: "บริษัท โกลบอล อินเวสท์เมนท์ กรุ๊ป จำกัด",
+        juristicId: "0105558000004",
+        amount: "25,000,000 บาท",
+        type: "Asset Management & Holding",
+        decision: "BLOCKED_AML",
+        badge: "⛔ BLOCKED: AML SANCTION HIT",
+        badgeClass: "bg-red-100 text-red-800 border border-red-300",
+        memo: `# ⛔ COMPLIANCE BLOCK MEMORANDUM
+เลขที่ใบคำขอ: APP-2026-004
+ผู้ขอสินเชื่อ: บริษัท โกลบอล อินเวสท์เมนท์ กรุ๊ป จำกัด (0105558000004)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. ผลการพิจารณา (Underwriting Decision): 
+   ⛔ ระงับการทำธุรกรรมทันที (COMPLIANCE HARD BLOCK)
+
+2. ผลการคัดกรองรายชื่อบุคคลต้องห้าม (AML / PEP Screening):
+   • เครื่องมือ screen_aml_sanctions ตรวจพบกรรมการผู้มีอำนาจติดรายชื่อเฝ้าระวัง
+   • รายชื่อตรงกับฐานข้อมูล Designated Persons List ของสำนักงาน ปปง.
+   • ปิดกั้นกระบวนการสินเชื่อตามข้อกำหนดกฎหมายฟอกเงิน พ.ร.บ. ป้องกันและปราบปรามการฟอกเงิน`
+      }
+    };
+
+    let currentScenario = 'clean_approval';
+
+    function selectScenario(key) {
+      currentScenario = key;
+      const data = scenarios[key];
+      
+      document.querySelectorAll('#btn-clean, #btn-missing, #btn-tampered, #btn-aml').forEach(el => {
+        el.className = "w-full text-left p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition";
+      });
+      
+      const activeBtnMap = {
+        clean_approval: '#btn-clean',
+        missing_docs: '#btn-missing',
+        tampered_stmt: '#btn-tampered',
+        aml_hit: '#btn-aml'
+      };
+      
+      const activeEl = document.querySelector(activeBtnMap[key]);
+      if (activeEl) {
+        activeEl.className = "w-full text-left p-3.5 rounded-xl border border-blue-500 bg-blue-50/50 transition";
+      }
+
+      document.getElementById('scenario-id').innerText = data.id;
+      document.getElementById('company-name').innerText = data.name;
+      document.getElementById('juristic-id').innerText = data.juristicId;
+      document.getElementById('requested-amount').innerText = data.amount;
+      document.getElementById('business-type').innerText = data.type;
+      
+      resetPipeline();
+    }
+
+    function resetPipeline() {
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById(`step-${i}`);
+        el.className = "p-3 rounded-xl border border-slate-200 bg-slate-50/50 flex items-center justify-between text-xs transition";
+        el.querySelector('.step-badge').className = "w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[11px] step-badge";
+        el.querySelector('.status-indicator').innerText = "รอดำเนินการ";
+        el.querySelector('.status-indicator').className = "status-indicator text-slate-400 text-[11px] font-medium";
+      }
+      document.getElementById('sim-status').innerText = "พร้อมทำงาน";
+      document.getElementById('sim-status').className = "text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600";
+      document.getElementById('decision-badge').innerText = "ยังไม่ได้รัน";
+      document.getElementById('decision-badge').className = "text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600";
+      document.getElementById('output-container').innerText = 'กดปุ่ม "รันการประเมิน Multi-Agent" เพื่อเริ่มกระบวนการวิเคราะห์สินเชื่อ...';
+    }
+
+    async function runSimulation() {
+      const data = scenarios[currentScenario];
+      const runBtn = document.getElementById('run-btn');
+      runBtn.disabled = true;
+      runBtn.innerHTML = `<span>⏳</span> กำลังประมวลผล Multi-Agent...`;
+      document.getElementById('sim-status').innerText = "กำลังทำงาน (Running)";
+      document.getElementById('sim-status').className = "text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 animate-pulse";
+      document.getElementById('output-container').innerText = `[INFO] เริ่มต้นระบบ Multi-Agent Orchestrator (Gemini 3.7 Flash)...\n[INFO] เรียกใช้งาน Agent Gateway -> Engine ge-demo1\n`;
+
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById(`step-${i}`);
+        el.className = "p-3 rounded-xl border border-blue-400 bg-blue-50 flex items-center justify-between text-xs transition";
+        el.querySelector('.step-badge').className = "w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-[11px] step-badge animate-bounce";
+        el.querySelector('.status-indicator').innerText = "กำลังเรียกใช้ Tool...";
+        el.querySelector('.status-indicator').className = "status-indicator text-blue-600 text-[11px] font-bold";
+
+        await new Promise(r => setTimeout(r, 650));
+
+        el.className = "p-3 rounded-xl border border-emerald-300 bg-emerald-50/70 flex items-center justify-between text-xs transition";
+        el.querySelector('.step-badge').className = "w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[11px] step-badge";
+        el.querySelector('.status-indicator').innerText = "✓ สำเร็จ (200 OK)";
+        el.querySelector('.status-indicator').className = "status-indicator text-emerald-700 text-[11px] font-semibold";
+        
+        document.getElementById('output-container').innerText += `[SUCCESS] Node ${i} ดำเนินการเสร็จสมบูรณ์ -> JSON-RPC Stream Received.\n`;
+      }
+
+      await new Promise(r => setTimeout(r, 300));
+      
+      document.getElementById('sim-status').innerText = "เสร็จสมบูรณ์ (Completed)";
+      document.getElementById('sim-status').className = "text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800";
+      
+      const badge = document.getElementById('decision-badge');
+      badge.innerText = data.badge;
+      badge.className = `text-xs font-bold px-3 py-1 rounded-full ${data.badgeClass}`;
+      
+      document.getElementById('output-container').innerText = data.memo;
+
+      runBtn.disabled = false;
+      runBtn.innerHTML = `<span>⚡</span> รันการประเมิน Multi-Agent (Auto Underwrite)`;
+    }
+  </script>
+</body>
+</html>
