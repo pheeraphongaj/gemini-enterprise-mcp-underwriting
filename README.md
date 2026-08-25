@@ -13,8 +13,9 @@
 
 ## 🌐 Live Interactive Presentation & Simulator
 
-> 🚀 **Want to experience the animated executive presentation and live simulator?**  
-> 👉 **[Click here to Launch Interactive HTML Presentation](https://htmlpreview.github.io/?https://github.com/pheeraphongaj/gemini-enterprise-mcp-underwriting/blob/main/underwriting_solution_presentation.html)** *(Or open `underwriting_solution_presentation.html` locally in any web browser)*.
+> 🚀 **Experience the animated executive presentation & live multi-agent simulator:**  
+> 👉 **[Launch Live Interactive Presentation & Simulator (GitHub Pages)](https://pheeraphongaj.github.io/gemini-enterprise-mcp-underwriting/)**  
+> *(To activate, go to **Settings ➔ Pages ➔ Build and deployment: Deploy from a branch (`main` / `root`)**)*.
 
 ---
 
