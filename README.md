@@ -11,11 +11,33 @@
 
 ---
 
-## 🌐 Live Interactive Presentation & Simulator
+## 🌐 How to View the Interactive Presentation & Simulator
 
-> 🚀 **Experience the animated executive presentation & live multi-agent simulator:**  
-> 👉 **[Launch Live Interactive Presentation & Simulator (GitHub Pages)](https://pheeraphongaj.github.io/gemini-enterprise-mcp-underwriting/)**  
-> *(To activate, go to **Settings ➔ Pages ➔ Build and deployment: Deploy from a branch (`main` / `root`)**)*.
+You have **3 convenient ways** to view and interact with the executive presentation and live underwriting flow simulator:
+
+| Viewing Mode | How to Access | Best For |
+| :--- | :--- | :--- |
+| 🚀 **Option 1: Live Web (GitHub Pages)** | [**Launch Live Web App**](https://pheeraphongaj.github.io/gemini-enterprise-mcp-underwriting/) *(if repo is Public & Pages enabled)* | Live sharing with clients without downloading files |
+| 💻 **Option 2: 1-Click Local Browser** | Double-click **`index.html`** or **`underwriting_solution_presentation.html`** in any browser (Chrome/Edge/Safari) | Offline presentations, internal demo sessions |
+| 📄 **Option 3: Direct in GitHub README** | Scroll down to the [**Interactive Demo Scenarios**](#-interactive-demo-scenarios--generated-memos) section below | Instant preview directly inside GitHub UI |
+
+```
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│  🖥️ INTERACTIVE SIMULATOR PREVIEW (index.html)                                  │
+├──────────────────────────────────────────────────────────────────────────────────┤
+│  [🎯 Select Scenario]               [🔄 Agent Execution Pipeline]                │
+│  ◉ 1. Siam Software (Fast-Track)    ✓ 1. Gmail Scanner & Doc Intake (200 OK)     │
+│  ○ 2. Bangkok Logistics (Missing)   ✓ 2. DBD & AML Compliance Check (200 OK)     │
+│  ○ 3. Thai Trading (Tampered Stmt)  ✓ 3. Fraud & Anomaly Detection  (200 OK)     │
+│  ○ 4. Global Invest (AML Sanction)  ✓ 4. DSCR & Credit Scoring      (200 OK)     │
+│                                     ✓ 5. Underwriting Decision Memo (200 OK)     │
+│  [⚡ Run Autonomous Evaluation]                                                  │
+│                                     [📑 Generated Pre-Approval Memo (Thai)]      │
+│                                     🟢 FAST-TRACK PRE-APPROVED                   │
+│                                     • Facility: 10,000,000 THB @ 5.75% (60 Mos)  │
+│                                     • DSCR: 1.73 (Benchmark ≥ 1.25)              │
+└──────────────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
