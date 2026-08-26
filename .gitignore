@@ -19,3 +19,8 @@ venv/
 .DS_Store
 .vscode/
 .idea/
+
+# Internal / Prompt Logs
+history.md
+HISTORY.md
+
