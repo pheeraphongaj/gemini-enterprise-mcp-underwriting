@@ -30,64 +30,57 @@ This solution deploys an **Autonomous Multi-Agent Underwriting System** powered 
 
 ---
 
-## 2. High-Level Architecture Topology
+## 2. High-Level Architecture Topology (Pragmatic Hybrid Model)
+
+Rather than forcing every component into MCP, the enterprise architecture follows a **Pragmatic Hybrid Pattern**:
+* **Event-Driven & Storage Pipelines** for heavy binary files and raw OCR (avoiding context window bloat).
+* **Deterministic High-Speed REST APIs** for exact financial calculations (avoiding LLM math hallucinations).
+* **Model Context Protocol (MCP)** strictly for **Dynamic Context Enrichment** (Government registries & AML screening where LLM reasoning is required).
+* **Direct REST APIs with Human Gating** for core banking staging and notification dispatch.
 
 ```mermaid
 flowchart TB
-    subgraph ClientLayer ["1. Client & Trigger Layer"]
-        Email["📧 Commercial Inbound Email<br>(Gmail / Loan Application)"]
-        Portal["💻 Bank Portal / Chat UI<br>(Gemini Enterprise Web App)"]
+    subgraph IntakeLayer ["1. Ingestion & Event-Driven Pipeline (No MCP)"]
+        Email["📧 Inbound Email / Portal"] -->|Store Raw PDF| GCS["🪣 Cloud Storage (GCS)<br>(Encrypted Document Bucket)"]
+        GCS -->|Async Trigger| DocAI["📄 Google Document AI<br>(OCR & Structured Key Extraction)"]
+        DocAI -->|Clean JSON Payload| AppDB[("💾 Case Application Store")]
     end
 
-    subgraph OrchestrationLayer ["2. Gemini Enterprise Core (ge-demo1)"]
+    subgraph DeterministicAPIs ["2. Deterministic Microservices (Direct REST APIs - 0% Hallucination)"]
+        REST_Math["📊 Scoring & DSCR Calculator<br>(Exact Financial Arithmetic REST API)"]
+        REST_Fraud["🕵️ Forensic Graph Engine<br>(Circular Fund & Benford's Law REST API)"]
+    end
+
+    subgraph OrchestrationLayer ["3. Agentic Reasoning Tier (Gemini Enterprise - ge-demo1)"]
         AgentGateway["🚪 Gemini Enterprise Agent Gateway<br>(SPIFFE Auth & Egress Broker)"]
-        RootAgent["🧠 Root Multi-Agent Orchestrator<br>(Gemini 3.7 Flash - Thai Native)"]
+        RootAgent["🧠 Underwriting Orchestrator<br>(Gemini 3.7 Flash - Thai Native)"]
         
-        subgraph SubAgents ["Specialist Sub-Agent Nodes"]
-            N1["Doc Intake Agent"]
-            N2["Doc Parser Agent"]
-            N3["Verification & AML Agent"]
-            N4["Fraud Risk Agent"]
-            N5["Scoring Engine Agent"]
-            N6["Decision Engine Agent"]
-            N7["Notification Agent"]
-        end
+        AppDB --> AgentGateway
+        AgentGateway --> RootAgent
+        
+        RootAgent <-->|Direct REST Call| REST_Math
+        RootAgent <-->|Direct REST Call| REST_Fraud
     end
 
-    subgraph MCPLayer ["3. Cloud Run Serverless MCP Microservices"]
-        MCP1["📧 underwriting-gmail-mcp"]
-        MCP2["📄 underwriting-doc-mcp"]
-        MCP3["🏛️ underwriting-registry-mcp"]
-        MCP4["🕵️ underwriting-fraud-mcp"]
-        MCP5["📊 underwriting-scoring-mcp"]
-        MCP6["⚖️ underwriting-decision-mcp"]
-        MCP7["📩 underwriting-notification-mcp"]
+    subgraph MCPLayer ["4. Selective MCP Microservices (Dynamic Context Enrichment)"]
+        MCP_Registry["🏛️ underwriting-registry-mcp<br>(Model Context Protocol JSON-RPC)"]
+        
+        RootAgent <-->|tools/call| MCP_Registry
+        
+        MCP_Registry -->|Query 13-digit ID| DBD["🏛️ DBD Corporate Registry"]
+        MCP_Registry -->|Query National ID| DOPA["🆔 DOPA Identity Verification"]
+        MCP_Registry -->|Screen Watchlists| AML["⚖️ AMLO Sanctions List (ปปง.)"]
     end
 
-    subgraph DataIntegrations ["4. Banking & Regulatory Integration"]
-        DBD["🏛️ Department of Business Dev (DBD API)"]
-        DOPA["🆔 Dept of Provincial Admin (DOPA)"]
-        AML["⚖️ AMLO Sanctions List (ปปง.)"]
-        CBS["🏦 Core Banking Ledger & CBS"]
+    subgraph CoreIntegration ["5. Human-Gated Core Banking & Dispatch (REST API)"]
+        HITL["👤 Underwriter Approval Cockpit<br>(Human-in-the-Loop Sign-off)"]
+        CBS["🏦 Core Banking Ledger (CBS Staging)"]
+        Notify["📩 Customer Notification Service (SMS/Email)"]
+        
+        RootAgent -->|Draft Pre-Approval Memo| HITL
+        HITL -->|Authorized Human Sign-off| CBS
+        HITL -->|Dispatch| Notify
     end
-
-    ClientLayer --> AgentGateway
-    AgentGateway --> RootAgent
-    RootAgent --> SubAgents
-    
-    N1 --> MCP1
-    N2 --> MCP2
-    N3 --> MCP3
-    N4 --> MCP4
-    N5 --> MCP5
-    N6 --> MCP6
-    N7 --> MCP7
-
-    MCP3 --> DBD
-    MCP3 --> DOPA
-    MCP3 --> AML
-    MCP5 --> CBS
-    MCP6 --> CBS
 ```
 
 ---
@@ -177,3 +170,19 @@ Every microservice implements JSON-RPC 2.0 compliance with `tools/list` and `too
    * Agents operate with SPIFFE ID identities (`spiffeIdType: USER`) within `discoveryengine.googleapis.com`.
 4. **Data Isolation**:
    * All microservices are stateless; banking payloads are processed in-memory without persistent retention on untrusted nodes.
+
+---
+
+## 6. Architectural Decision Matrix: When to Use MCP vs. Direct REST / Storage
+
+To prevent the **"Golden Hammer" anti-pattern** (forcing every workload into MCP), the platform applies strict architectural boundaries:
+
+| Workload / Capability | Recommended Pattern | Why NOT MCP? |
+| :--- | :---: | :--- |
+| **Raw File Ingestion (PDF, Scans, Statement CSVs)** | **Cloud Storage (GCS) + Document AI** | ❌ **Context Bloat:** Streaming binary base64 or 50MB PDFs into LLM context window wastes tokens, spikes latency, and risks context truncation. Store in GCS and pass only clean JSON summaries to the agent. |
+| **Exact Financial Math (DSCR, D/E, Loan Installments)** | **Deterministic REST API (Python/Go)** | ❌ **Arithmetic Hallucination:** LLMs should never calculate mission-critical compound interest or ratio formulas. Use deterministic microservices returning exact floats. |
+| **Government & External Registries (DBD, DOPA, AMLO)** | **Model Context Protocol (MCP)** | 🟢 **MCP Sweet Spot:** Dynamic context enrichment with small input/output payloads where the Agent needs to reason on the result and dynamically choose subsequent actions. |
+| **Complex Graph & Forensic Fraud Scoring** | **BigQuery / Python REST API** | ❌ **Computationally Heavy:** Graph traversal for circular money laundering across 10,000 transactions belongs in BigQuery/Pandas, returning a simple fraud score `{fraud_score: 12}`. |
+| **Core Banking Ledger Write (CBS Account Debit/Disbursal)** | **Human-in-the-Loop + REST API** | ❌ **Catastrophic Risk:** Never allow unconstrained autonomous agent writes to financial ledgers. Agent drafts the order; authorized human signs off to trigger the Core Banking REST API. |
+| **Official Thai Memo & Letter Drafting** | **Gemini 3.7 Flash Reasoning** | 🟢 **LLM Sweet Spot:** High-empathy, context-aware natural language drafting strictly governed by bank tone and policy templates. |
+
