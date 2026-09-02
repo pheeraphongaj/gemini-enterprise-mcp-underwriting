@@ -341,4 +341,6 @@ python3 test_all_mcp_servers.py
 * 🏛️ **[Technical Architecture Blueprint](ARCHITECTURE.md)**: Deep dive into multi-agent hierarchy, sequence flows, and security.
 * 🚀 **[Step-by-Step Setup Guide](SETUP_GUIDE.md)**: Complete deployment playbook from IAM to Agent Designer v2.
 * 💬 **[Sample Demo Prompts](SAMPLE_PROMPTS.md)**: Ready-to-copy customer demo prompts in Thai and English.
-* 🧪 **[Interactive Presentation & Simulator](underwriting_solution_presentation.html)**: Standalone executive HTML slide deck.
+* 🧪 **[Interactive Solution Presentation & Simulator](underwriting_solution_presentation.html)**: Standalone executive HTML slide deck & live flow simulator.
+* 📊 **[Enterprise Agentic Strategy Slides](enterprise_agentic_strategy_slides.html)**: 7-slide executive pitch on Multi-BU Agentic Factory & Fast Impact justification.
+
