@@ -20,7 +20,9 @@ venv/
 .vscode/
 .idea/
 
-# Internal / Prompt Logs
+# Internal / Prompt Logs & Draft Presentations
 history.md
 HISTORY.md
+enterprise_agentic_strategy_slides.html
+
 
