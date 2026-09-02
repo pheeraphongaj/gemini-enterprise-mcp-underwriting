@@ -56,64 +56,55 @@ This solution transforms the entire loan origination lifecycle into an **autonom
 
 ---
 
-## 🏛️ System Architecture Topology
+## 🏛️ System Architecture Topology (Pragmatic Hybrid Model)
+
+The enterprise architecture avoids forcing every component into MCP, applying a **Pragmatic Hybrid Pattern**:
+* **Event-Driven & Storage Pipelines** for raw file ingestion and Document AI (zero token context bloat).
+* **Deterministic High-Speed REST APIs** for mathematical formulas (exact DSCR, zero calculation hallucination).
+* **Selective MCP Microservices** strictly for **Dynamic Context Enrichment** (DBD, DOPA, AMLO registries).
+* **Human-Gated REST APIs** for Core Banking System (CBS) transaction staging.
 
 ```mermaid
 flowchart TB
-    subgraph TriggerLayer ["1. Inbound & Intake Channels"]
-        Email["📧 Loan Inbox Scanner (Gmail)"]
-        Portal["💻 Bank Officer Portal (Gemini Enterprise Web)"]
+    subgraph IntakeLayer ["1. Ingestion & Event-Driven Pipeline (No MCP)"]
+        Email["📧 Inbound Email / Portal"] -->|Store Raw PDF| GCS["🪣 Cloud Storage (GCS)<br>(Encrypted Document Bucket)"]
+        GCS -->|Async Trigger| DocAI["📄 Google Document AI<br>(OCR & Structured Key Extraction)"]
+        DocAI -->|Clean JSON Payload| AppDB[("💾 Case Application Store")]
     end
 
-    subgraph OrchestratorLayer ["2. Gemini Enterprise Core Engine (ge-demo1)"]
-        Gateway["🚪 Gemini Enterprise Agent Gateway (SPIFFE Auth)"]
-        Root["🧠 Root Multi-Agent Orchestrator (Gemini 3.7 Flash)"]
+    subgraph DeterministicAPIs ["2. Deterministic Microservices (Direct REST APIs - 0% Hallucination)"]
+        REST_Math["📊 Scoring & DSCR Calculator<br>(Exact Financial Arithmetic REST API)"]
+        REST_Fraud["🕵️ Forensic Graph Engine<br>(Circular Fund & Benford's Law REST API)"]
+    end
+
+    subgraph OrchestratorLayer ["3. Agentic Reasoning Tier (Gemini Enterprise - ge-demo1)"]
+        Gateway["🚪 Gemini Enterprise Agent Gateway<br>(SPIFFE Auth & Egress Broker)"]
+        Root["🧠 Underwriting Multi-Agent Orchestrator<br>(Gemini 3.7 Flash - Thai Native)"]
         
-        subgraph SubAgents ["Specialized Domain Sub-Agents"]
-            A1["Doc Intake Agent"]
-            A2["Doc Parser Agent"]
-            A3["KYC & AML Verification Agent"]
-            A4["Fraud Risk Forensic Agent"]
-            A5["Credit Scoring Engine Agent"]
-            A6["Decision Policy Agent"]
-            A7["Notification & Memo Agent"]
-        end
+        AppDB --> Gateway
+        Gateway --> Root
+        Root <-->|Direct REST Call| REST_Math
+        Root <-->|Direct REST Call| REST_Fraud
     end
 
-    subgraph MCPServices ["3. Serverless MCP Microservices (Cloud Run)"]
-        M1["📧 underwriting-gmail-mcp"]
-        M2["📄 underwriting-doc-mcp"]
-        M3["🏛️ underwriting-registry-mcp"]
-        M4["🕵️ underwriting-fraud-mcp"]
-        M5["📊 underwriting-scoring-mcp"]
-        M6["⚖️ underwriting-decision-mcp"]
-        M7["📩 underwriting-notification-mcp"]
+    subgraph MCPServices ["4. Selective MCP Microservices (Dynamic Context Enrichment)"]
+        M_Reg["🏛️ underwriting-registry-mcp<br>(Model Context Protocol JSON-RPC)"]
+        
+        Root <-->|tools/call| M_Reg
+        M_Reg --> DBD["🏛️ DBD Business Registry"]
+        M_Reg --> DOPA["🆔 DOPA National ID"]
+        M_Reg --> AML["⚖️ AMLO Sanctions List (ปปง.)"]
     end
 
-    subgraph BankingSystems ["4. External Banking & Regulatory APIs"]
-        DBD["🏛️ DBD Business Registry"]
-        DOPA["🆔 DOPA National ID"]
-        AML["⚖️ AMLO Sanctions List (ปปง.)"]
-        CBS["🏦 Core Banking Ledger"]
+    subgraph CoreIntegration ["5. Human-Gated Core Banking & Dispatch (REST API)"]
+        HITL["👤 Underwriter Approval Cockpit<br>(Human-in-the-Loop Sign-off)"]
+        CBS["🏦 Core Banking Ledger (CBS Staging)"]
+        Notify["📩 Customer Notification Service (SMS/Email)"]
+        
+        Root -->|Draft Pre-Approval Memo| HITL
+        HITL -->|Authorized Human Sign-off| CBS
+        HITL -->|Dispatch| Notify
     end
-
-    TriggerLayer --> Gateway
-    Gateway --> Root
-    Root --> SubAgents
-    
-    A1 --> M1
-    A2 --> M2
-    A3 --> M3
-    A4 --> M4
-    A5 --> M5
-    A6 --> M6
-    A7 --> M7
-
-    M3 --> DBD
-    M3 --> DOPA
-    M3 --> AML
-    M5 --> CBS
-    M6 --> CBS
 ```
 
 ---
