@@ -113,102 +113,108 @@
   <!-- Interactive System Architecture Section -->
   <section class="py-14 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
-          <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">End-to-End Topology</span>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">สถาปัตยกรรมระบบ Multi-Agent & Microservices</h3>
+          <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">End-to-End Pragmatic Topology</span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">สถาปัตยกรรมระบบ Pragmatic Hybrid Multi-Agent</h3>
         </div>
         <p class="text-sm text-slate-500 max-w-md mt-2 md:mt-0">
-          แบ่งหน้าที่แบบ Decoupled Microservices ผ่านมาตรฐาน Model Context Protocol (JSON-RPC) และเชื่อมโยงผ่าน Gemini Enterprise Agent Gateway
+          หลีกเลี่ยงการยัดเยียดทุกอย่างลงใน MCP โดยแยกชั้น Ingestion, งานคำนวณสูตรคณิตศาสตร์แบบ REST API, และจำกัด MCP เฉพาะงานดึงข้อมูลทะเบียนภายนอก (Dynamic Context)
         </p>
       </div>
 
-      <!-- Architecture Flow Visual -->
-      <div class="bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl overflow-x-auto">
-        <div class="min-w-[900px]">
-          <!-- Layer 1: Ingress / Trigger -->
-          <div class="mb-6">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-blue-400">1. Intake & Communication Layer</span>
-              <span class="text-xs text-slate-400">Omnichannel & Email Scanners</span>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-4 flex items-start gap-3">
-                <div class="p-2 rounded-lg bg-blue-500/20 text-blue-400 text-lg">📧</div>
-                <div>
-                  <h4 class="text-sm font-semibold text-white">underwriting-gmail-mcp</h4>
-                  <p class="text-xs text-slate-400 mt-0.5">Cloud Run • Tools: <code class="text-blue-300">scan_gmail_inbox</code>, <code class="text-blue-300">fetch_email_attachment</code></p>
-                </div>
-              </div>
-              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-4 flex items-start gap-3">
-                <div class="p-2 rounded-lg bg-amber-500/20 text-amber-400 text-lg">📄</div>
-                <div>
-                  <h4 class="text-sm font-semibold text-white">underwriting-doc-mcp</h4>
-                  <p class="text-xs text-slate-400 mt-0.5">Cloud Run • Tools: <code class="text-amber-300">validate_document_checklist</code>, <code class="text-amber-300">parse_financial_documents</code></p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- Architectural Callout Box -->
+      <div class="bg-blue-50/70 border border-blue-200 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="text-base">💡</span>
+          <span class="font-bold text-blue-900">Architectural Best Practice:</span>
+          <span class="text-slate-700">ไม่ใช้ MCP กับไฟล์ดิบขนาดใหญ่ (ป้องกัน Token Bloat) และไม่ใช้ LLM คิดเลขสูตรการเงิน (ป้องกัน Math Hallucination)</span>
+        </div>
+        <span class="px-2.5 py-1 rounded-full bg-blue-600 text-white font-bold text-[10px] uppercase">Enterprise Standard</span>
+      </div>
 
-          <!-- Layer 2: Orchestrator Brain -->
-          <div class="mb-6">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-purple-400">2. Gemini Enterprise Orchestration Core (ge-demo1)</span>
-              <span class="text-xs text-slate-400">Gemini 3.7 Flash Engine with Dynamic MCP Tool Calling</span>
-            </div>
-            <div class="bg-gradient-to-r from-blue-950/80 via-purple-950/80 to-slate-900 border border-purple-800/50 rounded-2xl p-5">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-bold text-purple-300 px-3 py-1 rounded-full bg-purple-900/60 border border-purple-700">Root Orchestrator Agent (Node: root_agent)</span>
-                <span class="text-xs text-slate-300 font-mono">100% Thai Instructions • Multi-Step Reasoning</span>
-              </div>
-              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 text-center text-xs">
-                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Doc Intake</div>
-                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Doc Parser</div>
-                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">KYC/AML Verify</div>
-                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Fraud Analysis</div>
-                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Credit Scoring</div>
-                <div class="p-2 rounded-lg bg-slate-800/70 border border-slate-700 text-slate-300">Decision/Memo</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Layer 3: Specialist Risk, Policy & Decision MCP Microservices -->
+      <!-- Architecture Flow Visual (4-Tier Grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Tier 1: Ingestion & Storage -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-white flex flex-col justify-between shadow-md">
           <div>
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">3. Specialist Domain & Policy Microservices</span>
-              <span class="text-xs text-slate-400">Autonomous Stateless Microservices on Cloud Run</span>
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400">Tier 1: Ingestion & Storage</span>
+              <span class="text-[10px] text-slate-400">No MCP</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
-              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
-                <div class="text-sm font-semibold text-emerald-400 mb-1">🏛️ Registry & AML</div>
-                <p class="text-[11px] text-slate-400">DBD Company Lookup, DOPA National ID, AML Sanction screening</p>
-                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-registry-mcp</div>
-              </div>
+            <div class="text-xl mb-2">🪣 📄</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Cloud Storage &amp; Doc AI</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              • Gmail / Portal อัปโหลดไฟล์ PDF สเตทเมนต์เข้า <strong>Cloud Storage (GCS)</strong> โดยตรง<br>
+              • <strong>Document AI</strong> ทำ OCR สกัดตารางบัญชีเป็น JSON<br>
+              • ป้องกันไฟล์ดิบทะลักเข้า Context Window
+            </p>
+          </div>
+          <div class="mt-4 pt-2.5 border-t border-slate-800 text-[10px] text-blue-300 font-mono">
+            Event-Driven Pipeline (0% Token Waste)
+          </div>
+        </div>
 
-              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
-                <div class="text-sm font-semibold text-rose-400 mb-1">🕵️ Fraud & Tamper</div>
-                <p class="text-[11px] text-slate-400">Revenue anomaly detection, Statement tampering evaluation</p>
-                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-fraud-mcp</div>
-              </div>
-
-              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
-                <div class="text-sm font-semibold text-cyan-400 mb-1">📊 Credit Scoring</div>
-                <p class="text-[11px] text-slate-400">DSCR debt service coverage calculation, SME risk rating</p>
-                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-scoring-mcp</div>
-              </div>
-
-              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
-                <div class="text-sm font-semibold text-yellow-400 mb-1">⚖️ Decision Engine</div>
-                <p class="text-[11px] text-slate-400">Fast-track policy rules, Facility limits, Interest pricing</p>
-                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-decision-mcp</div>
-              </div>
-
-              <div class="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5">
-                <div class="text-sm font-semibold text-purple-400 mb-1">📩 Notification & Memo</div>
-                <p class="text-[11px] text-slate-400">Pre-approval letters, Missing document notices, Committee memos</p>
-                <div class="mt-2 text-[10px] font-mono text-slate-500">underwriting-notification-mcp</div>
-              </div>
+        <!-- Tier 2: Deterministic REST APIs -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-white flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">Tier 2: Deterministic Math</span>
+              <span class="text-[10px] text-slate-400">High-Speed REST</span>
             </div>
+            <div class="text-xl mb-2">📊 🕵️</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Scoring &amp; Fraud APIs</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              • คำนวณสูตร <strong>DSCR, D/E, และค่างวด</strong> ด้วยโค้ด Python REST API ตรงๆ<br>
+              • อัลกอริทึม <strong>Benford's Law &amp; เงินหมุนเวียน</strong> ประมวลผลผ่าน BigQuery<br>
+              • ส่งเฉพาะผลลัพธ์ตัวเลขกลับให้ Agent
+            </p>
+          </div>
+          <div class="mt-4 pt-2.5 border-t border-slate-800 text-[10px] text-amber-300 font-mono">
+            Direct REST API (0% Math Hallucination)
+          </div>
+        </div>
+
+        <!-- Tier 3: Agent & Selective MCP -->
+        <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border-2 border-indigo-500 rounded-2xl p-5 text-white flex flex-col justify-between shadow-lg relative">
+          <div class="absolute -top-2.5 right-3 px-2 py-0.5 bg-indigo-600 text-white text-[9px] font-extrabold uppercase rounded-full">MCP Sweet Spot ⭐</div>
+          <div>
+            <div class="flex items-center justify-between border-b border-indigo-800/60 pb-2 mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400">Tier 3: Reasoning &amp; MCP</span>
+              <span class="text-[10px] text-indigo-300">Gemini 3.7 Flash</span>
+            </div>
+            <div class="text-xl mb-2">🧠 🏛️</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Orchestrator &amp; Registry MCP</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              • <strong>Gemini 3.7 Flash</strong> ตัดสินใจตามนโยบายสินเชื่อ<br>
+              • เรียก <strong>underwriting-registry-mcp</strong> เพื่อค้นหา:<br>
+              &nbsp;&nbsp;✓ กรมพัฒนาธุรกิจการค้า (DBD)<br>
+              &nbsp;&nbsp;✓ สถานะบัตร ปชช. (DOPA)<br>
+              &nbsp;&nbsp;✓ คัดกรองรายชื่อ ปปง. (AMLO)
+            </p>
+          </div>
+          <div class="mt-4 pt-2.5 border-t border-indigo-800/60 text-[10px] text-emerald-400 font-mono">
+            JSON-RPC 2.0 (Dynamic Context Enrichment)
+          </div>
+        </div>
+
+        <!-- Tier 4: Human-in-the-Loop & Core Banking -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-white flex flex-col justify-between shadow-md">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Tier 4: Core &amp; Dispatch</span>
+              <span class="text-[10px] text-slate-400">Human Gated</span>
+            </div>
+            <div class="text-xl mb-2">👤 🏦</div>
+            <h4 class="text-sm font-bold text-white mb-1.5">Human Sign-off &amp; CBS</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              • Agent ร่าง <strong>บันทึกขออนุมัติสินเชื่อภาษาไทย</strong><br>
+              • Underwriter มนุษย์ตรวจทานและกด Sign-off<br>
+              • Trigger ยิง REST API บันทึกลง <strong>Core Banking System (CBS)</strong> และส่ง SMS/Email
+            </p>
+          </div>
+          <div class="mt-4 pt-2.5 border-t border-slate-800 text-[10px] text-emerald-300 font-mono">
+            Secure REST API (Human Authorization)
           </div>
         </div>
       </div>
